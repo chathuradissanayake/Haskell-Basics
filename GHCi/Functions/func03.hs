@@ -1,32 +1,3 @@
--- Defining simple functions in Haskell
-
--- Function definitions-1
--- In GHCi or .hs files
-double x = x * 2
-square x = x * x
-add a b = a + b
-
--- Usage
-double 5    -- 10
-square 3    -- 9
-add 4 5     -- 9
-
-
-
--- Function definitions-2
-
--- Normal function call
-div 10 3    -- 3
-
--- Using function as infix operator (with backticks)
-10 `div` 3  -- 3
-
--- Using operator as function (with parentheses)
-(+) 5 3     -- 8
-(>) 5 3     -- True
-
-
-
 
 -- Function definitions-3
 
@@ -50,7 +21,6 @@ increment x = x + 1
 -- = square 10
 -- = 10 * 10
 -- = 100
-
 
 
 
