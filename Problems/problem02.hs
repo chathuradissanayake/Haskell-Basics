@@ -2,25 +2,39 @@
 > :type (1, "hello", True)
 (1, "hello", True) :: (Num a, Num b) => (a, [Char], Bool)
 
-> :type [[1,2], [3,4,5]] 
-[[1,2], [3,4,5]] :: Num a => [[a]]
-
--- Problem 1
 -- Expression: (1, "hello", True)
 -- Answer: (Num a) => (a, [Char], Bool)
--- Explanation: 1 is a numeric literal so it has type (Num a) => a; "hello" :: [Char]; True :: Bool.
+
+-- 1 could be Int, Integer, Double, Float, etc.
+-- GHCi shows the most general possible type
+-- The Num a and Num b constraints mean "could be any numeric type"
+-- 1 is a numeric literal so it has type (Num a) => a; "hello" :: [Char]; True :: Bool.
 -- Example (disambiguated): (1 :: Int, "hello", True) :: (Int, [Char], Bool)
 
 
--- Problem 2  
+-- Problem 2
+
+> :type [[1,2], [3,4,5]] 
+[[1,2], [3,4,5]] :: Num a => [[a]]
+
+-- Again, 1, 2, 3, 4, 5 are polymorphic numeric literals
+-- They could be any Num type, but they must all be the same type a
+-- So the type is "list of lists of some numeric type a"
+
+
+
+-- Problem 3
 > :type triple
 triple :: Num a => a -> a
+-- triple uses arithmetic, so needs Num constraint
 
 > :type isEmpty
 isEmpty :: [a] -> Bool
+-- isEmpty just checks length, works with any list type
 
 > :type applyTwice
 applyTwice :: (a -> a) -> a -> a
+-- applyTwice works with any function that maps a type to itself
 
 -- Given types shown:
 -- triple :: Num a => a -> a
